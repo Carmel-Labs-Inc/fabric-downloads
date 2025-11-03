@@ -1,0 +1,120 @@
+name: Sync Releases to Downloads
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to sync (e.g., v1.0.0)'
+        required: true
+      silicon_artifact_url:
+        description: 'Silicon artifact URL from GitHub Actions'
+        required: false
+      intel_artifact_url:
+        description: 'Intel artifact URL from GitHub Actions'
+        required: false
+
+jobs:
+  sync-downloads:
+    name: Sync Release Artifacts
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout fabric-downloads
+        uses: actions/checkout@v4
+        
+      - name: Download Silicon Build
+        if: inputs.silicon_artifact_url != ''
+        run: |
+          VERSION="${{ inputs.version }}"
+          mkdir -p macos/silicon
+          
+          # Download from GitHub release
+          wget -O macos/silicon/FabricAgent-Silicon-${VERSION}.zip \
+            "https://github.com/Carmel-Labs-Inc/fabric/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip"
+          
+          wget -O macos/silicon/SHA256-Silicon-${VERSION}.txt \
+            "https://github.com/Carmel-Labs-Inc/fabric/releases/download/${VERSION}/SHA256-Silicon-${VERSION}.txt"
+            
+      - name: Download Intel Build
+        if: inputs.intel_artifact_url != ''
+        run: |
+          VERSION="${{ inputs.version }}"
+          mkdir -p macos/intel
+          
+          # Download from GitHub release
+          wget -O macos/intel/FabricAgent-Intel-${VERSION}.zip \
+            "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.zip"
+          
+          wget -O macos/intel/SHA256-Intel-${VERSION}.txt \
+            "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/${VERSION}/SHA256-Intel-${VERSION}.txt"
+            
+      - name: Update latest.json
+        run: |
+          VERSION="${{ inputs.version }}"
+          VERSION_NUM="${VERSION#v}"  # Remove 'v' prefix
+          
+          # Get file sizes
+          SILICON_SIZE=$(stat -f%z "macos/silicon/FabricAgent-Silicon-${VERSION}.zip" 2>/dev/null || echo "0")
+          INTEL_SIZE=$(stat -f%z "macos/intel/FabricAgent-Intel-${VERSION}.zip" 2>/dev/null || echo "0")
+          
+          # Get SHA256
+          SILICON_SHA=$(cat "macos/silicon/SHA256-Silicon-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
+          INTEL_SHA=$(cat "macos/intel/SHA256-Intel-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
+          
+          # Update latest.json
+          cat > latest.json << EOF
+          {
+            "version": "${VERSION_NUM}",
+            "release_date": "$(date -u +%Y-%m-%d)",
+            "platforms": {
+              "macos_silicon": {
+                "version": "${VERSION_NUM}",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip",
+                "sha256": "${SILICON_SHA}",
+                "size_bytes": ${SILICON_SIZE},
+                "min_os_version": "12.0"
+              },
+              "macos_intel": {
+                "version": "${VERSION_NUM}",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.zip",
+                "sha256": "${INTEL_SHA}",
+                "size_bytes": ${INTEL_SIZE},
+                "min_os_version": "12.0"
+              }
+            },
+            "release_notes": "https://github.com/Carmel-Labs-Inc/fabric/releases/tag/${VERSION}",
+            "changelog": [
+              "${VERSION} - Production release",
+              "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
+              "- WebSocket real-time job notifications",
+              "- Proof of Execution with privacy protection",
+              "- Automatic model cache cleanup",
+              "- Background daemon mode"
+            ]
+          }
+          EOF
+          
+      - name: Commit and Push
+        run: |
+          VERSION="${{ inputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add macos/ latest.json
+          git commit -m "Release ${VERSION}: Sync Silicon and Intel builds"
+          git push
+          
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ inputs.version }}
+          name: Fabric Agent ${{ inputs.version }}
+          files: |
+            macos/silicon/FabricAgent-Silicon-*.zip
+            macos/silicon/SHA256-Silicon-*.txt
+            macos/intel/FabricAgent-Intel-*.zip
+            macos/intel/SHA256-Intel-*.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
