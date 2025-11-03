@@ -30,10 +30,10 @@ jobs:
           
           # Download from GitHub release
           wget -O macos/silicon/FabricAgent-Silicon-${VERSION}.zip \
-            "https://github.com/Carmel-Labs-Inc/fabric/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip"
+            "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip"
           
           wget -O macos/silicon/SHA256-Silicon-${VERSION}.txt \
-            "https://github.com/Carmel-Labs-Inc/fabric/releases/download/${VERSION}/SHA256-Silicon-${VERSION}.txt"
+            "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/${VERSION}/SHA256-Silicon-${VERSION}.txt"
             
       - name: Download Intel Build
         if: inputs.intel_artifact_url != ''
@@ -82,7 +82,7 @@ jobs:
                 "min_os_version": "12.0"
               }
             },
-            "release_notes": "https://github.com/Carmel-Labs-Inc/fabric/releases/tag/${VERSION}",
+            "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/${VERSION}",
             "changelog": [
               "${VERSION} - Production release",
               "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
