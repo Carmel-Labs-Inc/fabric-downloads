@@ -35,7 +35,7 @@ jobs:
       - name: Download Silicon Build
         if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon' || env.PLATFORM == 'both'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
         run: |
           VERSION="${{ env.VERSION }}"
           mkdir -p macos/silicon
@@ -54,7 +54,7 @@ jobs:
       - name: Download Intel Build
         if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel' || env.PLATFORM == 'both'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
         run: |
           VERSION="${{ env.VERSION }}"
           mkdir -p macos/intel
