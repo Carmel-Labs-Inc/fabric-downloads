@@ -34,29 +34,41 @@ jobs:
           
       - name: Download Silicon Build
         if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon' || env.PLATFORM == 'both'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="${{ env.VERSION }}"
           mkdir -p macos/silicon
           
-          # Download from GitHub release
-          wget -O macos/silicon/FabricAgent-Silicon-${VERSION}.zip \
-            "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip"
+          # Download from GitHub release using gh CLI (works with private repos)
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-silicon \
+            --pattern "FabricAgent-Silicon-${VERSION}.zip" \
+            --dir macos/silicon
           
-          wget -O macos/silicon/SHA256-Silicon-${VERSION}.txt \
-            "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/${VERSION}/SHA256-Silicon-${VERSION}.txt"
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-silicon \
+            --pattern "SHA256-Silicon-${VERSION}.txt" \
+            --dir macos/silicon
             
       - name: Download Intel Build
         if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel' || env.PLATFORM == 'both'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="${{ env.VERSION }}"
           mkdir -p macos/intel
           
-          # Download from GitHub release
-          wget -O macos/intel/FabricAgent-Intel-${VERSION}.zip \
-            "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.zip"
+          # Download from GitHub release using gh CLI (works with private repos)
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-intel \
+            --pattern "FabricAgent-Intel-${VERSION}.zip" \
+            --dir macos/intel
           
-          wget -O macos/intel/SHA256-Intel-${VERSION}.txt \
-            "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/${VERSION}/SHA256-Intel-${VERSION}.txt"
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-intel \
+            --pattern "SHA256-Intel-${VERSION}.txt" \
+            --dir macos/intel
             
       - name: Update latest.json
         run: |
