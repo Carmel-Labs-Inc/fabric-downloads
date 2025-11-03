@@ -1,17 +1,17 @@
 name: Sync Releases to Downloads
 
 on:
+  repository_dispatch:
+    types: [silicon-released, intel-released]
   workflow_dispatch:
     inputs:
       version:
         description: 'Version to sync (e.g., v1.0.0)'
         required: true
-      silicon_artifact_url:
-        description: 'Silicon artifact URL from GitHub Actions'
-        required: false
-      intel_artifact_url:
-        description: 'Intel artifact URL from GitHub Actions'
-        required: false
+      platform:
+        description: 'Platform to sync (silicon, intel, or both)'
+        required: true
+        default: 'both'
 
 jobs:
   sync-downloads:
@@ -22,10 +22,20 @@ jobs:
       - name: Checkout fabric-downloads
         uses: actions/checkout@v4
         
-      - name: Download Silicon Build
-        if: inputs.silicon_artifact_url != ''
+      - name: Set Version
         run: |
-          VERSION="${{ inputs.version }}"
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "VERSION=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
+            echo "PLATFORM=${{ github.event.action }}" >> $GITHUB_ENV
+          else
+            echo "VERSION=${{ inputs.version }}" >> $GITHUB_ENV
+            echo "PLATFORM=${{ inputs.platform }}" >> $GITHUB_ENV
+          fi
+          
+      - name: Download Silicon Build
+        if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon' || env.PLATFORM == 'both'
+        run: |
+          VERSION="${{ env.VERSION }}"
           mkdir -p macos/silicon
           
           # Download from GitHub release
@@ -36,9 +46,9 @@ jobs:
             "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/${VERSION}/SHA256-Silicon-${VERSION}.txt"
             
       - name: Download Intel Build
-        if: inputs.intel_artifact_url != ''
+        if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel' || env.PLATFORM == 'both'
         run: |
-          VERSION="${{ inputs.version }}"
+          VERSION="${{ env.VERSION }}"
           mkdir -p macos/intel
           
           # Download from GitHub release
@@ -50,7 +60,7 @@ jobs:
             
       - name: Update latest.json
         run: |
-          VERSION="${{ inputs.version }}"
+          VERSION="${{ env.VERSION }}"
           VERSION_NUM="${VERSION#v}"  # Remove 'v' prefix
           
           # Get file sizes
@@ -96,7 +106,7 @@ jobs:
           
       - name: Commit and Push
         run: |
-          VERSION="${{ inputs.version }}"
+          VERSION="${{ env.VERSION }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add macos/ latest.json
@@ -104,10 +114,11 @@ jobs:
           git push
           
       - name: Create GitHub Release
+        if: env.PLATFORM == 'both'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ inputs.version }}
-          name: Fabric Agent ${{ inputs.version }}
+          tag_name: ${{ env.VERSION }}
+          name: Fabric Agent ${{ env.VERSION }}
           files: |
             macos/silicon/FabricAgent-Silicon-*.zip
             macos/silicon/SHA256-Silicon-*.txt
