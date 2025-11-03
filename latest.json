@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "release_date": "2025-11-02",
+  "platforms": {
+    "macos_silicon": {
+      "version": "1.0.0",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/v1.0.0/FabricAgent-Silicon-v1.0.0.zip",
+      "sha256": "",
+      "size_bytes": 0,
+      "min_os_version": "12.0"
+    },
+    "macos_intel": {
+      "version": "1.0.0",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/v1.0.0/FabricAgent-Intel-v1.0.0.zip",
+      "sha256": "",
+      "size_bytes": 0,
+      "min_os_version": "12.0"
+    }
+  },
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/tag/v1.0.0",
+  "changelog": [
+    "v1.0.0 - Initial production release",
+    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
+    "- WebSocket real-time job notifications",
+    "- Proof of Execution with privacy protection",
+    "- Automatic model cache cleanup",
+    "- Background daemon mode"
+  ]
+}
