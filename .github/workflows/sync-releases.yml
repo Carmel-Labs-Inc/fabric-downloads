@@ -121,16 +121,28 @@ jobs:
           VERSION="${{ env.VERSION }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add macos/ latest.json
-          git commit -m "Release ${VERSION}: Sync Silicon and Intel builds"
+          git add latest.json
+          git commit -m "Update latest.json for ${VERSION}"
           git push
           
       - name: Create GitHub Release
-        if: env.PLATFORM == 'both'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.VERSION }}
           name: Fabric Agent ${{ env.VERSION }}
+          body: |
+            ## Fabric Agent ${{ env.VERSION }}
+            
+            Production-ready builds for macOS (Silicon + Intel)
+            
+            ### Downloads
+            - **Silicon (M1/M2/M3)**: FabricAgent-Silicon-${{ env.VERSION }}.zip
+            - **Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.zip
+            
+            ### Installation
+            1. Download the appropriate build for your Mac
+            2. Unzip and move to Applications
+            3. Open and follow enrollment instructions
           files: |
             macos/silicon/FabricAgent-Silicon-*.zip
             macos/silicon/SHA256-Silicon-*.txt
