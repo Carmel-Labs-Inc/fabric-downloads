@@ -5,14 +5,14 @@
     "macos_silicon": {
       "version": "1.0.3",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/v1.0.3/FabricAgent-Silicon-v1.0.3.zip",
-      "sha256": "881b388283b499bb420b5bf8f92efafba5ded4a8bbb0730eddc694837d72c1f5",
+      "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
       "version": "1.0.3",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/v1.0.3/FabricAgent-Intel-v1.0.3.zip",
-      "sha256": "",
+      "sha256": "9a359d849dbc97a59f8aeffa82b16456e7e364bc0229b042c476e150e20a91ea",
       "size_bytes": 0,
       "min_os_version": "12.0"
     }
