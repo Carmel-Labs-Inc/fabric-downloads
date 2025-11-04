@@ -1,11 +1,11 @@
 {
   "version": "1.0.3",
-  "release_date": "2025-11-03",
+  "release_date": "2025-11-04",
   "platforms": {
     "macos_silicon": {
       "version": "1.0.3",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/v1.0.3/FabricAgent-Silicon-v1.0.3.zip",
-      "sha256": "3bcd8a4d71783bb91d40b98ce19ceeaa7d32de23450b1651cd538a1182baf330",
+      "sha256": "6f7890a40c391cf9c8277d3fd90cf821cf666d836fbe3ae3d2e06d4c55f9b9ef",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
