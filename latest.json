@@ -12,7 +12,7 @@
     "macos_intel": {
       "version": "intel-v1.0.8",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.8/FabricAgent-Intel-intel-v1.0.8.zip",
-      "sha256": "dc596b20cf7dee2b77efee36f89d3109aaef62f99d4dc695ed703f1eec82c689",
+      "sha256": "e9f552078a8e597aaa43a1962e6380e1ac6be965858885e270f41d879dbb1530",
       "size_bytes": 0,
       "min_os_version": "12.0"
     }
