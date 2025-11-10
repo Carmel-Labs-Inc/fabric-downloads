@@ -43,7 +43,7 @@ jobs:
           # Download from GitHub release using gh CLI (works with private repos)
           gh release download ${VERSION} \
             --repo Carmel-Labs-Inc/fabric-silicon \
-            --pattern "FabricAgent-Silicon-${VERSION}.zip" \
+            --pattern "FabricAgent-Silicon-${VERSION}.dmg" \
             --dir macos/silicon
           
           gh release download ${VERSION} \
@@ -62,7 +62,7 @@ jobs:
           # Download from GitHub release using gh CLI (works with private repos)
           gh release download ${VERSION} \
             --repo Carmel-Labs-Inc/fabric-intel \
-            --pattern "FabricAgent-Intel-${VERSION}.zip" \
+            --pattern "FabricAgent-Intel-${VERSION}.dmg" \
             --dir macos/intel
           
           gh release download ${VERSION} \
@@ -76,8 +76,8 @@ jobs:
           VERSION_NUM="${VERSION#v}"  # Remove 'v' prefix
           
           # Get file sizes
-          SILICON_SIZE=$(stat -f%z "macos/silicon/FabricAgent-Silicon-${VERSION}.zip" 2>/dev/null || echo "0")
-          INTEL_SIZE=$(stat -f%z "macos/intel/FabricAgent-Intel-${VERSION}.zip" 2>/dev/null || echo "0")
+          SILICON_SIZE=$(stat -f%z "macos/silicon/FabricAgent-Silicon-${VERSION}.dmg" 2>/dev/null || echo "0")
+          INTEL_SIZE=$(stat -f%z "macos/intel/FabricAgent-Intel-${VERSION}.dmg" 2>/dev/null || echo "0")
           
           # Get SHA256
           SILICON_SHA=$(cat "macos/silicon/SHA256-Silicon-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
@@ -91,14 +91,14 @@ jobs:
             "platforms": {
               "macos_silicon": {
                 "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.zip",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.dmg",
                 "sha256": "${SILICON_SHA}",
                 "size_bytes": ${SILICON_SIZE},
                 "min_os_version": "12.0"
               },
               "macos_intel": {
                 "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.zip",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.dmg",
                 "sha256": "${INTEL_SHA}",
                 "size_bytes": ${INTEL_SIZE},
                 "min_os_version": "12.0"
@@ -136,17 +136,17 @@ jobs:
             Production-ready builds for macOS (Silicon + Intel)
             
             ### Downloads
-            - **Silicon (M1/M2/M3)**: FabricAgent-Silicon-${{ env.VERSION }}.zip
-            - **Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.zip
+            - **Silicon (M1/M2/M3)**: FabricAgent-Silicon-${{ env.VERSION }}.dmg
+            - **Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.dmg
             
             ### Installation
             1. Download the appropriate build for your Mac
-            2. Unzip and move to Applications
+            2. Open the DMG and drag FabricAgent to Applications
             3. Open and follow enrollment instructions
           files: |
-            macos/silicon/FabricAgent-Silicon-*.zip
+            macos/silicon/FabricAgent-Silicon-*.dmg
             macos/silicon/SHA256-Silicon-*.txt
-            macos/intel/FabricAgent-Intel-*.zip
+            macos/intel/FabricAgent-Intel-*.dmg
             macos/intel/SHA256-Intel-*.txt
           draft: false
           prerelease: false
