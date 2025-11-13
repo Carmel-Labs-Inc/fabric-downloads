@@ -1,25 +1,25 @@
 {
-  "version": "intel-v1.0.50-test20",
+  "version": "intel-v1.0.36",
   "release_date": "2025-11-13",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.50-test20",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.50-test20/FabricAgent-Silicon-intel-v1.0.50-test20.dmg",
+      "version": "intel-v1.0.36",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.36/FabricAgent-Silicon-intel-v1.0.36.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.50-test20",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.50-test20/FabricAgent-Intel-intel-v1.0.50-test20.dmg",
-      "sha256": "d7b647c19ba130a8ffb11183a2a283212647226620670cbd57c388133b09eafa",
+      "version": "intel-v1.0.36",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.36/FabricAgent-Intel-intel-v1.0.36.dmg",
+      "sha256": "53842658ea336b42a3356e334b5814af61f4fc34f301baa6e2e5a96b4718b9e4",
       "size_bytes": 0,
       "min_os_version": "12.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.50-test20",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.36",
   "changelog": [
-    "intel-v1.0.50-test20 - Production release",
+    "intel-v1.0.36 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
