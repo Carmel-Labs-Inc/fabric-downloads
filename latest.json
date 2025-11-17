@@ -1,25 +1,25 @@
 {
-  "version": "intel-v1.0.111",
+  "version": "intel-v1.0.112",
   "release_date": "2025-11-17",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.111",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.111/FabricAgent-Silicon-intel-v1.0.111.dmg",
+      "version": "intel-v1.0.112",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.112/FabricAgent-Silicon-intel-v1.0.112.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.111",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.111/FabricAgent-Intel-intel-v1.0.111.dmg",
-      "sha256": "2057dee3c8ceb3455de7268ca63de7c30d54a8ffa0c0387a6a34c49baeda35d1",
+      "version": "intel-v1.0.112",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.112/FabricAgent-Intel-intel-v1.0.112.dmg",
+      "sha256": "e7e419ea856114ffc67593de7a4bf9a5d97cbab0b12bbee13a6dc603ec9a82f0",
       "size_bytes": 0,
       "min_os_version": "12.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.111",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.112",
   "changelog": [
-    "intel-v1.0.111 - Production release",
+    "intel-v1.0.112 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
