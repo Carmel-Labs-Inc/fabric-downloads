@@ -1,32 +1,32 @@
 {
-  "version": "windows-v1.0.1",
+  "version": "windows-v1.0.2",
   "release_date": "2025-11-18",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.1",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.1/FabricAgent-Silicon-windows-v1.0.1.dmg",
+      "version": "windows-v1.0.2",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.2/FabricAgent-Silicon-windows-v1.0.2.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.1",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.1/FabricAgent-Intel-windows-v1.0.1.dmg",
+      "version": "windows-v1.0.2",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.2/FabricAgent-Intel-windows-v1.0.2.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.1",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.1/FabricAgent-Windows-windows-v1.0.1.zip",
+      "version": "windows-v1.0.2",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.2/FabricAgent-Windows-windows-v1.0.2.zip",
       "sha256": "",
-      "size_bytes": 485731110,
+      "size_bytes": 485794166,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.1",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.2",
   "changelog": [
-    "windows-v1.0.1 - Production release",
+    "windows-v1.0.2 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
