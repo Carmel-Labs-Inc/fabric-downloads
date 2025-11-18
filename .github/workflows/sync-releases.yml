@@ -2,16 +2,16 @@ name: Sync Releases to Downloads
 
 on:
   repository_dispatch:
-    types: [silicon-released, intel-released]
+    types: [silicon-released, intel-released, windows-released]
   workflow_dispatch:
     inputs:
       version:
         description: 'Version to sync (e.g., v1.0.0)'
         required: true
       platform:
-        description: 'Platform to sync (silicon, intel, or both)'
+        description: 'Platform to sync (silicon, intel, windows, or all)'
         required: true
-        default: 'both'
+        default: 'all'
 
 jobs:
   sync-downloads:
@@ -33,7 +33,7 @@ jobs:
           fi
           
       - name: Download Silicon Build
-        if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon' || env.PLATFORM == 'both'
+        if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon' || env.PLATFORM == 'both' || env.PLATFORM == 'all'
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT }}
         run: |
@@ -52,7 +52,7 @@ jobs:
             --dir macos/silicon
             
       - name: Download Intel Build
-        if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel' || env.PLATFORM == 'both'
+        if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel' || env.PLATFORM == 'both' || env.PLATFORM == 'all'
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT }}
         run: |
@@ -70,6 +70,25 @@ jobs:
             --pattern "SHA256-Intel-${VERSION}.txt" \
             --dir macos/intel
             
+      - name: Download Windows Build
+        if: env.PLATFORM == 'windows-released' || env.PLATFORM == 'windows' || env.PLATFORM == 'all'
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
+        run: |
+          VERSION="${{ env.VERSION }}"
+          mkdir -p windows
+          
+          # Download from GitHub release using gh CLI (works with private repos)
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-windows \
+            --pattern "FabricAgent-Windows-${VERSION}.zip" \
+            --dir windows
+          
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-windows \
+            --pattern "SHA256-Windows-${VERSION}.txt" \
+            --dir windows
+            
       - name: Update latest.json
         run: |
           VERSION="${{ env.VERSION }}"
@@ -78,10 +97,12 @@ jobs:
           # Get file sizes
           SILICON_SIZE=$(stat -f%z "macos/silicon/FabricAgent-Silicon-${VERSION}.dmg" 2>/dev/null || echo "0")
           INTEL_SIZE=$(stat -f%z "macos/intel/FabricAgent-Intel-${VERSION}.dmg" 2>/dev/null || echo "0")
+          WINDOWS_SIZE=$(stat -c%s "windows/FabricAgent-Windows-${VERSION}.zip" 2>/dev/null || stat -f%z "windows/FabricAgent-Windows-${VERSION}.zip" 2>/dev/null || echo "0")
           
           # Get SHA256
           SILICON_SHA=$(cat "macos/silicon/SHA256-Silicon-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
           INTEL_SHA=$(cat "macos/intel/SHA256-Intel-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
+          WINDOWS_SHA=$(cat "windows/SHA256-Windows-${VERSION}.txt" | awk 'NR==2 {print $2}' 2>/dev/null || echo "")
           
           # Update latest.json
           cat > latest.json << EOF
@@ -102,6 +123,13 @@ jobs:
                 "sha256": "${INTEL_SHA}",
                 "size_bytes": ${INTEL_SIZE},
                 "min_os_version": "12.0"
+              },
+              "windows": {
+                "version": "${VERSION_NUM}",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Windows-${VERSION}.zip",
+                "sha256": "${WINDOWS_SHA}",
+                "size_bytes": ${WINDOWS_SIZE},
+                "min_os_version": "10.0"
               }
             },
             "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/${VERSION}",
@@ -133,21 +161,35 @@ jobs:
           body: |
             ## Fabric Agent ${{ env.VERSION }}
             
-            Production-ready builds for macOS (Silicon + Intel)
+            Production-ready builds for macOS and Windows
             
             ### Downloads
-            - **Silicon (M1/M2/M3)**: FabricAgent-Silicon-${{ env.VERSION }}.dmg
-            - **Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.dmg
+            - **macOS Silicon (M1/M2/M3/M4)**: FabricAgent-Silicon-${{ env.VERSION }}.dmg
+            - **macOS Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.dmg
+            - **Windows 10/11 (x86_64)**: FabricAgent-Windows-${{ env.VERSION }}.zip
             
             ### Installation
-            1. Download the appropriate build for your Mac
+            
+            **macOS:**
+            1. Download the appropriate DMG for your Mac
             2. Open the DMG and drag FabricAgent to Applications
             3. Open and follow enrollment instructions
+            
+            **Windows:**
+            1. Download the ZIP file
+            2. Extract to a folder
+            3. Run FabricAgent.exe and follow enrollment instructions
+            
+            ### Support
+            - Discord: https://discord.gg/fabric
+            - Email: support@fabric.carmel.so
           files: |
             macos/silicon/FabricAgent-Silicon-*.dmg
             macos/silicon/SHA256-Silicon-*.txt
             macos/intel/FabricAgent-Intel-*.dmg
             macos/intel/SHA256-Intel-*.txt
+            windows/FabricAgent-Windows-*.zip
+            windows/SHA256-Windows-*.txt
           draft: false
           prerelease: false
         env:
