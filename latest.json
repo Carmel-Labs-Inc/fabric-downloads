@@ -20,7 +20,7 @@
       "version": "windows-v1.0.11",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.11/FabricAgent-Windows-windows-v1.0.11.zip",
       "sha256": "",
-      "size_bytes": 485879069,
+      "size_bytes": 485875572,
       "min_os_version": "10.0"
     }
   },
