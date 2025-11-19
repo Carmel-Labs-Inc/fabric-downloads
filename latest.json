@@ -1,32 +1,32 @@
 {
-  "version": "windows-v1.0.17",
+  "version": "windows-v1.0.16",
   "release_date": "2025-11-19",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.17",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.17/FabricAgent-Silicon-windows-v1.0.17.dmg",
+      "version": "windows-v1.0.16",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Silicon-windows-v1.0.16.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.17",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.17/FabricAgent-Intel-windows-v1.0.17.dmg",
+      "version": "windows-v1.0.16",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Intel-windows-v1.0.16.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.17",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.17/FabricAgent-Windows-windows-v1.0.17.zip",
+      "version": "windows-v1.0.16",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Windows-windows-v1.0.16.zip",
       "sha256": "",
-      "size_bytes": 484886437,
+      "size_bytes": 484882882,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.17",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.16",
   "changelog": [
-    "windows-v1.0.17 - Production release",
+    "windows-v1.0.16 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
