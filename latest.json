@@ -1,32 +1,32 @@
 {
-  "version": "windows-v1.0.16",
-  "release_date": "2025-11-19",
+  "version": "intel-v1.0.130-test",
+  "release_date": "2025-11-20",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.16",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Silicon-windows-v1.0.16.dmg",
+      "version": "intel-v1.0.130-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.130-test/FabricAgent-Silicon-intel-v1.0.130-test.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.16",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Intel-windows-v1.0.16.dmg",
-      "sha256": "",
+      "version": "intel-v1.0.130-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.130-test/FabricAgent-Intel-intel-v1.0.130-test.dmg",
+      "sha256": "2cb80da29cd5a4fe6fc90660561f0abb5c7b2ae62ddb9adf295ab57146397f67",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.16",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.16/FabricAgent-Windows-windows-v1.0.16.zip",
+      "version": "intel-v1.0.130-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.130-test/FabricAgent-Windows-intel-v1.0.130-test.zip",
       "sha256": "",
-      "size_bytes": 484882882,
+      "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.16",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.130-test",
   "changelog": [
-    "windows-v1.0.16 - Production release",
+    "intel-v1.0.130-test - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
