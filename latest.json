@@ -1,32 +1,32 @@
 {
-  "version": "intel-v1.0.148",
+  "version": "intel-v1.0.149",
   "release_date": "2025-11-29",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.148",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.148/FabricAgent-Silicon-intel-v1.0.148.dmg",
+      "version": "intel-v1.0.149",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.149/FabricAgent-Silicon-intel-v1.0.149.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.148",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.148/FabricAgent-Intel-intel-v1.0.148.dmg",
-      "sha256": "b2028336d4183de46859ec5aa84c520d47090b435bc42903a87c5d957ab7c30c",
+      "version": "intel-v1.0.149",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.149/FabricAgent-Intel-intel-v1.0.149.dmg",
+      "sha256": "f131ffc1708a17d7f191df7f923838ee622df41200ead71c27ab112ec727936a",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.148",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.148/FabricAgent-Windows-intel-v1.0.148.zip",
+      "version": "intel-v1.0.149",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.149/FabricAgent-Windows-intel-v1.0.149.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.148",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.149",
   "changelog": [
-    "intel-v1.0.148 - Production release",
+    "intel-v1.0.149 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
