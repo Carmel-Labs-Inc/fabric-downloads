@@ -1,32 +1,32 @@
 {
-  "version": "intel-v1.0.140",
+  "version": "intel-v1.0.141-test",
   "release_date": "2025-11-29",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.140",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.140/FabricAgent-Silicon-intel-v1.0.140.dmg",
+      "version": "intel-v1.0.141-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.141-test/FabricAgent-Silicon-intel-v1.0.141-test.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.140",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.140/FabricAgent-Intel-intel-v1.0.140.dmg",
-      "sha256": "4f72c167131194e7cc9dbacf199016bf2a12055994bad63c69b8a1de19c15be2",
+      "version": "intel-v1.0.141-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.141-test/FabricAgent-Intel-intel-v1.0.141-test.dmg",
+      "sha256": "b2d7a297fe54b6c6006f15fa9fceac57073d288940c831d3025307f175e3c1a0",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.140",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.140/FabricAgent-Windows-intel-v1.0.140.zip",
+      "version": "intel-v1.0.141-test",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.141-test/FabricAgent-Windows-intel-v1.0.141-test.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.140",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.141-test",
   "changelog": [
-    "intel-v1.0.140 - Production release",
+    "intel-v1.0.141-test - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
