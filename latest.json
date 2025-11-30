@@ -1,5 +1,5 @@
 {
-  "version": "intel-v1.0.157",
+  "version": "intel-v1.0.158",
   "release_date": "2025-11-30",
   "platforms": {
     "macos_silicon": {
@@ -11,7 +11,7 @@
     },
     "macos_intel": {
       "version": "intel-v1.0.158",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.157/FabricAgent-Intel-intel-v1.0.157.dmg",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.158/FabricAgent-Intel-intel-v1.0.158.dmg",
       "sha256": "053f74ca0e221c8af166046951a224f9fba20ba1a811986243b7ade995024deb",
       "size_bytes": 0,
       "min_os_version": "12.0"
