@@ -11,9 +11,9 @@
     },
     "macos_intel": {
       "version": "intel-v1.0.155",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/intel-v1.0.154/FabricAgent-Intel-intel-v1.0.154.dmg",
-      "sha256": "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
-      "size_bytes": 0,
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.155/FabricAgent-Intel-intel-v1.0.155.dmg",
+      "sha256": "b56611f9f0ebff5f9aa2392bacb9b4e8bbc12a4124ad4d1c8cbe44a580a2aeed",
+      "size_bytes": 454258688,
       "min_os_version": "12.0"
     },
     "windows": {
