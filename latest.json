@@ -1,38 +1,36 @@
 {
-  "version": "v1.0.168",
-  "release_date": "2025-12-01",
+  "version": "intel-v1.0.169",
+  "release_date": "2025-12-02",
   "platforms": {
     "macos_silicon": {
-      "version": "silicon-v1.0.168",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.168/FabricAgent-Silicon-silicon-v1.0.168.dmg",
-      "sha256": "adecd4ed34a13137983ec4004b01366bd3e3bb515bafbc78972cc24ed5a5a1e5",
-      "size_bytes": 274110018,
+      "version": "intel-v1.0.169",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.169/FabricAgent-Silicon-intel-v1.0.169.dmg",
+      "sha256": "",
+      "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.168",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.168/FabricAgent-Intel-intel-v1.0.168.dmg",
-      "sha256": "50572a934bce7399d2c64047c9cd4e49746e5b672ee1955e17b48d9b3d19e651",
-      "size_bytes": 454069521,
+      "version": "intel-v1.0.169",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.169/FabricAgent-Intel-intel-v1.0.169.dmg",
+      "sha256": "ed0e2dd89318057446e89dcaffd89f0392a1f0cf1177535e2af7861ffdbedcb2",
+      "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.168",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.168/FabricAgent-Windows-intel-v1.0.168.zip",
+      "version": "intel-v1.0.169",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.169/FabricAgent-Windows-intel-v1.0.169.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/v1.0.168",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.169",
   "changelog": [
-    "v1.0.168 - Notification Authorization for macOS 15+",
-    "- Added explicit notification authorization for macOS Sequoia",
-    "- Fixed update notification delivery on macOS 15+",
-    "- Removed deprecated monitor daemon",
-    "- Streamlined build process",
+    "intel-v1.0.169 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection"
+    "- Proof of Execution with privacy protection",
+    "- Automatic model cache cleanup",
+    "- Background daemon mode"
   ]
 }
