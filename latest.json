@@ -1,32 +1,32 @@
 {
-  "version": "windows-v1.0.26",
+  "version": "intel-v1.0.170",
   "release_date": "2025-12-03",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.26",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.26/FabricAgent-Silicon-windows-v1.0.26.dmg",
+      "version": "intel-v1.0.170",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Silicon-intel-v1.0.170.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.26",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.26/FabricAgent-Intel-windows-v1.0.26.dmg",
-      "sha256": "",
+      "version": "intel-v1.0.170",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Intel-intel-v1.0.170.dmg",
+      "sha256": "0c3de7c439b25fad77e00a1b6c924ba84d90eb771e56e4370f96816341e46893",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.26",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.26/FabricAgent-Windows-windows-v1.0.26.zip",
+      "version": "intel-v1.0.170",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Windows-intel-v1.0.170.zip",
       "sha256": "",
-      "size_bytes": 368747697,
+      "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.26",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.170",
   "changelog": [
-    "windows-v1.0.26 - Production release",
+    "intel-v1.0.170 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
