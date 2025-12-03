@@ -1,36 +1,35 @@
 {
-  "version": "intel-v1.0.171",
+  "version": "v1.0.171",
   "release_date": "2025-12-03",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.171",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.171/FabricAgent-Silicon-intel-v1.0.171.dmg",
-      "sha256": "",
-      "size_bytes": 0,
+      "version": "silicon-v1.0.171",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.171/FabricAgent-Silicon-silicon-v1.0.171.dmg",
+      "sha256": "045586ff5a8809ee679048b2b983abc9af220b33bed598dc73f904cde37e1074",
+      "size_bytes": 328947226,
       "min_os_version": "12.0"
     },
     "macos_intel": {
       "version": "intel-v1.0.171",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.171/FabricAgent-Intel-intel-v1.0.171.dmg",
       "sha256": "cca1d5d60e20bd1a8bc1826a4d32879f0ad1458898bee98de68dc3cd00076a86",
-      "size_bytes": 0,
+      "size_bytes": 454070158,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.171",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.171/FabricAgent-Windows-intel-v1.0.171.zip",
+      "version": "v1.0.171",
+      "download_url": "",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.171",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.171",
   "changelog": [
-    "intel-v1.0.171 - Production release",
-    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
-    "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection",
-    "- Automatic model cache cleanup",
-    "- Background daemon mode"
+    "v1.0.171 - Critical stability fixes",
+    "- Fixed race condition crash on UI signup (NoneType is_running error)",
+    "- Fixed missing welcome emails for Google OAuth signups (backend)",
+    "- Added proper None checks before calling worker.is_running()",
+    "- All node providers should update immediately"
   ]
 }
