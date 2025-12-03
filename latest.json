@@ -1,36 +1,35 @@
 {
-  "version": "intel-v1.0.170",
+  "version": "v1.0.170",
   "release_date": "2025-12-03",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.170",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Silicon-intel-v1.0.170.dmg",
-      "sha256": "",
-      "size_bytes": 0,
+      "version": "silicon-v1.0.170",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.170/FabricAgent-Silicon-silicon-v1.0.170.dmg",
+      "sha256": "9aa339495ec0e2530d7d478d58f78f07cd1587c95a5b0ee021bb4ba8aebc7871",
+      "size_bytes": 274110018,
       "min_os_version": "12.0"
     },
     "macos_intel": {
       "version": "intel-v1.0.170",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Intel-intel-v1.0.170.dmg",
       "sha256": "0c3de7c439b25fad77e00a1b6c924ba84d90eb771e56e4370f96816341e46893",
-      "size_bytes": 0,
+      "size_bytes": 454069223,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.170",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.170/FabricAgent-Windows-intel-v1.0.170.zip",
+      "version": "v1.0.170",
+      "download_url": "",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.170",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.170",
   "changelog": [
-    "intel-v1.0.170 - Production release",
-    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
-    "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection",
-    "- Automatic model cache cleanup",
-    "- Background daemon mode"
+    "v1.0.170 - Critical bug fixes (UPDATE IMMEDIATELY)",
+    "- Fixed race condition crash on UI signup (NoneType is_running error)",
+    "- Fixed missing welcome emails for Google OAuth signups",
+    "- Improved daemon initialization stability",
+    "- New users can now sign up directly from the agent UI without crashes"
   ]
 }
