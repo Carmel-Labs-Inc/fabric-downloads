@@ -1,12 +1,12 @@
 {
-  "version": "v1.0.171",
-  "release_date": "2025-12-03",
+  "version": "v1.0.172",
+  "release_date": "2025-12-04",
   "platforms": {
     "macos_silicon": {
-      "version": "silicon-v1.0.171",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.171/FabricAgent-Silicon-silicon-v1.0.171.dmg",
-      "sha256": "045586ff5a8809ee679048b2b983abc9af220b33bed598dc73f904cde37e1074",
-      "size_bytes": 328947226,
+      "version": "silicon-v1.0.172",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.172/FabricAgent-Silicon-silicon-v1.0.172.dmg",
+      "sha256": "df42081e14b853da83664b1a87eacfea4e60ca40e8ae2327f8af04c8d6dfa234",
+      "size_bytes": 328942001,
       "min_os_version": "12.0"
     },
     "macos_intel": {
@@ -17,19 +17,19 @@
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "v1.0.171",
+      "version": "v1.0.172",
       "download_url": "",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.171",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.172",
   "changelog": [
-    "v1.0.171 - Critical stability fixes",
-    "- Fixed race condition crash on UI signup (NoneType is_running error)",
-    "- Fixed missing welcome emails for Google OAuth signups (backend)",
-    "- Added proper None checks before calling worker.is_running()",
-    "- All node providers should update immediately"
+    "v1.0.172 - Critical auto-updater fix (Silicon only)",
+    "- Fixed NameError in one_click_update() - missing logger initialization",
+    "- 'Update Now' button will now work correctly",
+    "- Critical fix for users on v1.0.166-171",
+    "- Intel remains on v1.0.171 (no bug, uses print() instead of logger)"
   ]
 }
