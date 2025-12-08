@@ -1,35 +1,36 @@
 {
-  "version": "v1.0.172",
-  "release_date": "2025-12-04",
+  "version": "windows-v1.0.27",
+  "release_date": "2025-12-08",
   "platforms": {
     "macos_silicon": {
-      "version": "silicon-v1.0.172",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.172/FabricAgent-Silicon-silicon-v1.0.172.dmg",
-      "sha256": "df42081e14b853da83664b1a87eacfea4e60ca40e8ae2327f8af04c8d6dfa234",
-      "size_bytes": 328942001,
+      "version": "windows-v1.0.27",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgent-Silicon-windows-v1.0.27.dmg",
+      "sha256": "",
+      "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.171",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.171/FabricAgent-Intel-intel-v1.0.171.dmg",
-      "sha256": "cca1d5d60e20bd1a8bc1826a4d32879f0ad1458898bee98de68dc3cd00076a86",
-      "size_bytes": 454070158,
+      "version": "windows-v1.0.27",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgent-Intel-windows-v1.0.27.dmg",
+      "sha256": "",
+      "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "v1.0.172",
-      "download_url": "",
-      "sha256": "",
-      "size_bytes": 0,
+      "version": "windows-v1.0.27",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgent-Windows-windows-v1.0.27.zip",
+      "sha256": "FabricAgentSetup-1.0.27.exe",
+      "size_bytes": 368791402,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.172",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.27",
   "changelog": [
-    "v1.0.172 - Critical auto-updater fix (Silicon only)",
-    "- Fixed NameError in one_click_update() - missing logger initialization",
-    "- 'Update Now' button will now work correctly",
-    "- Critical fix for users on v1.0.166-171",
-    "- Intel remains on v1.0.171 (no bug, uses print() instead of logger)"
+    "windows-v1.0.27 - Production release",
+    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
+    "- WebSocket real-time job notifications",
+    "- Proof of Execution with privacy protection",
+    "- Automatic model cache cleanup",
+    "- Background daemon mode"
   ]
 }
