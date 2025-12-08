@@ -18,7 +18,9 @@
     },
     "windows": {
       "version": "windows-v1.0.27",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgent-Windows-windows-v1.0.27.zip",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgentSetup-windows-v1.0.27.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgentSetup-windows-v1.0.27.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.27/FabricAgent-Windows-windows-v1.0.27.zip",
       "sha256": "FabricAgentSetup-1.0.27.exe",
       "size_bytes": 368791402,
       "min_os_version": "10.0"
