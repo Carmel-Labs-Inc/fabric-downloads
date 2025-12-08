@@ -76,18 +76,31 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_PAT }}
         run: |
           VERSION="${{ env.VERSION }}"
+          # Extract version number (remove windows-v prefix)
+          VERSION_NUM="${VERSION#windows-v}"
+          VERSION_NUM="${VERSION_NUM#v}"
           mkdir -p windows
           
-          # Download from GitHub release using gh CLI (works with private repos)
+          # Download ZIP from GitHub release
           gh release download ${VERSION} \
             --repo Carmel-Labs-Inc/fabric-windows \
             --pattern "FabricAgent-Windows-${VERSION}.zip" \
             --dir windows
           
+          # Download Installer (FabricAgentSetup-X.X.X.exe)
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-windows \
+            --pattern "FabricAgentSetup-${VERSION_NUM}.exe" \
+            --dir windows || echo "Installer not found, continuing..."
+          
+          # Download checksums
           gh release download ${VERSION} \
             --repo Carmel-Labs-Inc/fabric-windows \
             --pattern "SHA256-Windows-${VERSION}.txt" \
             --dir windows
+          
+          # List downloaded files
+          ls -la windows/
             
       - name: Update latest.json
         run: |
@@ -126,7 +139,9 @@ jobs:
               },
               "windows": {
                 "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Windows-${VERSION}.zip",
+                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe",
+                "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe",
+                "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Windows-${VERSION}.zip",
                 "sha256": "${WINDOWS_SHA}",
                 "size_bytes": ${WINDOWS_SIZE},
                 "min_os_version": "10.0"
@@ -176,9 +191,9 @@ jobs:
             3. Open and follow enrollment instructions
             
             **Windows:**
-            1. Download the ZIP file
-            2. Extract to a folder
-            3. Run FabricAgent.exe and follow enrollment instructions
+            1. Download `FabricAgentSetup-*.exe` (recommended) or ZIP file
+            2. Run the installer and follow setup wizard
+            3. Or extract ZIP and run FabricAgent.exe manually
             
             ### Support
             - Discord: https://discord.gg/fabric
@@ -188,6 +203,7 @@ jobs:
             macos/silicon/SHA256-Silicon-*.txt
             macos/intel/FabricAgent-Intel-*.dmg
             macos/intel/SHA256-Intel-*.txt
+            windows/FabricAgentSetup-*.exe
             windows/FabricAgent-Windows-*.zip
             windows/SHA256-Windows-*.txt
           draft: false
