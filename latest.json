@@ -1,34 +1,34 @@
 {
-  "version": "windows-v1.0.30",
+  "version": "windows-v1.0.34",
   "release_date": "2025-12-09",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.30",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.30/FabricAgent-Silicon-windows-v1.0.30.dmg",
+      "version": "windows-v1.0.34",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.34/FabricAgent-Silicon-windows-v1.0.34.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.30",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.30/FabricAgent-Intel-windows-v1.0.30.dmg",
+      "version": "windows-v1.0.34",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.34/FabricAgent-Intel-windows-v1.0.34.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.30",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.30/FabricAgentSetup-windows-v1.0.30.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.30/FabricAgentSetup-windows-v1.0.30.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.30/FabricAgent-Windows-windows-v1.0.30.zip",
-      "sha256": "FabricAgentSetup-1.0.30.exe",
-      "size_bytes": 368795764,
+      "version": "windows-v1.0.34",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.34/FabricAgentSetup-windows-v1.0.34.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.34/FabricAgentSetup-windows-v1.0.34.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.34/FabricAgent-Windows-windows-v1.0.34.zip",
+      "sha256": "FabricAgentSetup-1.0.34.exe",
+      "size_bytes": 368799738,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.30",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.34",
   "changelog": [
-    "windows-v1.0.30 - Production release",
+    "windows-v1.0.34 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
