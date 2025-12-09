@@ -1,18 +1,18 @@
 {
-  "version": "windows-v1.0.35",
+  "version": "v1.0.183",
   "release_date": "2025-12-09",
   "platforms": {
     "macos_silicon": {
-      "version": "windows-v1.0.35",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.35/FabricAgent-Silicon-windows-v1.0.35.dmg",
-      "sha256": "",
-      "size_bytes": 0,
+      "version": "silicon-v1.0.183",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.183/FabricAgent-Silicon-silicon-v1.0.183.dmg",
+      "sha256": "4333e9c6b61361d2fd685079fd8b94b253b684c8b079b8ba9293281bad4c6355",
+      "size_bytes": 339717126,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "windows-v1.0.35",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.35/FabricAgent-Intel-windows-v1.0.35.dmg",
-      "sha256": "",
+      "version": "intel-v1.0.183",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.183/FabricAgent-Intel-intel-v1.0.183.dmg",
+      "sha256": "TBD",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
@@ -21,18 +21,23 @@
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.35/FabricAgentSetup-windows-v1.0.35.exe",
       "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.35/FabricAgentSetup-windows-v1.0.35.exe",
       "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.35/FabricAgent-Windows-windows-v1.0.35.zip",
-      "sha256": "FabricAgentSetup-1.0.35.exe",
+      "sha256": "FabricAgentSetup-1.0.35.exe
+",
       "size_bytes": 368796259,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/windows-v1.0.35",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/tag/silicon-v1.0.183",
   "changelog": [
-    "windows-v1.0.35 - Production release",
-    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
+    "v1.0.183 - macOS: Custom Workload Runtime Dependencies",
+    "- Silicon: Fixed runtime pip install for custom workloads",
+    "- Intel: CI/CD build in progress",
+    "- Packages install to local lib/ directory with --target flag",
+    "- Proper sys.path configuration for package discovery",
+    "",
+    "windows-v1.0.35 - Windows Production Release",
+    "- 28 fully implemented workloads",
     "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection",
-    "- Automatic model cache cleanup",
-    "- Background daemon mode"
+    "- Proof of Execution with privacy protection"
   ]
 }
