@@ -1,38 +1,40 @@
 {
-  "version": "silicon-v1.0.184",
+  "version": "v1.0.184",
   "release_date": "2025-12-10",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.184",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.184/FabricAgent-Silicon-silicon-v1.0.184.dmg",
       "sha256": "c15c62b0b87c9f7d155edd212e791197b61fa6df0776857aaad11c91e1feb2e6",
-      "size_bytes": 0,
+      "size_bytes": 339735168,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "silicon-v1.0.184",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.184/FabricAgent-Intel-silicon-v1.0.184.dmg",
-      "sha256": "",
+      "version": "intel-v1.0.191",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.191/FabricAgent-Intel-intel-v1.0.191.dmg",
+      "sha256": "f41161a7fd41ab9faa4169287acd59916ebdab18ad71d2dd00b158f583648490",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "silicon-v1.0.184",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.184/FabricAgentSetup-silicon-v1.0.184.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.184/FabricAgentSetup-silicon-v1.0.184.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.184/FabricAgent-Windows-silicon-v1.0.184.zip",
+      "version": "windows-v1.0.42",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.42/FabricAgentSetup-1.0.42.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.42/FabricAgentSetup-1.0.42.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.42/FabricAgent-Windows-windows-v1.0.42.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.184",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/tag/silicon-v1.0.184",
   "changelog": [
-    "silicon-v1.0.184 - Production release",
-    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
-    "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection",
-    "- Automatic model cache cleanup",
-    "- Background daemon mode"
+    "silicon-v1.0.184 - Custom Workload Runtime Fixes",
+    "- Fixed Python 3.11 wheel compatibility",
+    "- Two-stage pip install for runtime dependencies",
+    "",
+    "intel-v1.0.191 - Matplotlib Import Order Fix",
+    "- Fixed matplotlib import order for headless execution",
+    "",
+    "windows-v1.0.42 - Latest Windows Release"
   ]
 }
