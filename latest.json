@@ -1,34 +1,34 @@
 {
-  "version": "intel-v1.0.189",
+  "version": "intel-v1.0.190",
   "release_date": "2025-12-10",
   "platforms": {
     "macos_silicon": {
-      "version": "intel-v1.0.189",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.189/FabricAgent-Silicon-intel-v1.0.189.dmg",
+      "version": "intel-v1.0.190",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.190/FabricAgent-Silicon-intel-v1.0.190.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.189",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.189/FabricAgent-Intel-intel-v1.0.189.dmg",
-      "sha256": "49ff6d38be3dcc5e1675881062deebcf5b77d11663809a1b24bf3d98f7fab115",
+      "version": "intel-v1.0.190",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.190/FabricAgent-Intel-intel-v1.0.190.dmg",
+      "sha256": "e2e620dd5415ccdf1af92a39b2a1fa3780c12e80be92b3dee2a32a7086c9bf6b",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "intel-v1.0.189",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.189/FabricAgentSetup-intel-v1.0.189.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.189/FabricAgentSetup-intel-v1.0.189.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.189/FabricAgent-Windows-intel-v1.0.189.zip",
+      "version": "intel-v1.0.190",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.190/FabricAgentSetup-intel-v1.0.190.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.190/FabricAgentSetup-intel-v1.0.190.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.190/FabricAgent-Windows-intel-v1.0.190.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.189",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/intel-v1.0.190",
   "changelog": [
-    "intel-v1.0.189 - Production release",
+    "intel-v1.0.190 - Production release",
     "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
     "- WebSocket real-time job notifications",
     "- Proof of Execution with privacy protection",
