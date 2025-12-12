@@ -1,35 +1,38 @@
 {
-  "version": "2025-12-11",
-  "release_date": "2025-12-11",
+  "version": "silicon-v1.0.186",
+  "release_date": "2025-12-12",
   "platforms": {
     "macos_silicon": {
-      "version": "silicon-v1.0.185",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/silicon-v1.0.185/FabricAgent-Silicon-silicon-v1.0.185.dmg",
-      "sha256": "",
+      "version": "silicon-v1.0.186",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.186/FabricAgent-Silicon-silicon-v1.0.186.dmg",
+      "sha256": "7a7022892e9144f2f8e15504521c1c00e8462e0b9bb032c7800c403697f790e2",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.192",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/intel-v1.0.192/FabricAgent-Intel-intel-v1.0.192.dmg",
+      "version": "silicon-v1.0.186",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.186/FabricAgent-Intel-silicon-v1.0.186.dmg",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.42",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.42/FabricAgentSetup-windows-v1.0.42.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.42/FabricAgentSetup-windows-v1.0.42.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.42/FabricAgent-Windows-windows-v1.0.42.zip",
+      "version": "silicon-v1.0.186",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.186/FabricAgentSetup-silicon-v1.0.186.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.186/FabricAgentSetup-silicon-v1.0.186.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.186/FabricAgent-Windows-silicon-v1.0.186.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.186",
   "changelog": [
-    "Silicon v1.0.185 - Bundle standalone Python for pip (no Xcode required)",
-    "Intel v1.0.192 - Bundle standalone Python for pip (no Xcode required)",
-    "Windows v1.0.42 - Custom workload support"
+    "silicon-v1.0.186 - Production release",
+    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
+    "- WebSocket real-time job notifications",
+    "- Proof of Execution with privacy protection",
+    "- Automatic model cache cleanup",
+    "- Background daemon mode"
   ]
 }
