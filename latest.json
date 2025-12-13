@@ -1,38 +1,35 @@
 {
-  "version": "silicon-v1.0.191",
+  "version": "2025-12-13",
   "release_date": "2025-12-13",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.191",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.191/FabricAgent-Silicon-silicon-v1.0.191.dmg",
-      "sha256": "15d48aa5c095f5411dde2655821c3a4b5890bc059accbda469730ad117a35f75",
-      "size_bytes": 0,
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/download/silicon-v1.0.191/FabricAgent-Silicon-silicon-v1.0.191.dmg",
+      "sha256": "531b62002bf31f69e6a106743bc96e63148a82e98de619d751f5076bead0a5cb",
+      "size_bytes": 358867288,
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "silicon-v1.0.191",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.191/FabricAgent-Intel-silicon-v1.0.191.dmg",
-      "sha256": "",
+      "version": "intel-v1.0.196",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-intel/releases/download/intel-v1.0.196/FabricAgent-Intel-intel-v1.0.196.dmg",
+      "sha256": "17c9029973e8464e62b06a2f06cc42b3d15d30f581f1786f6691a577d3226995",
       "size_bytes": 0,
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "silicon-v1.0.191",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.191/FabricAgentSetup-silicon-v1.0.191.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.191/FabricAgentSetup-silicon-v1.0.191.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.191/FabricAgent-Windows-silicon-v1.0.191.zip",
+      "version": "windows-v1.0.43",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.43/FabricAgentSetup-windows-v1.0.43.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.43/FabricAgentSetup-windows-v1.0.43.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-windows/releases/download/windows-v1.0.43/FabricAgent-Windows-windows-v1.0.43.zip",
       "sha256": "",
       "size_bytes": 0,
       "min_os_version": "10.0"
     }
   },
-  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/silicon-v1.0.191",
+  "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",
   "changelog": [
-    "silicon-v1.0.191 - Production release",
-    "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
-    "- WebSocket real-time job notifications",
-    "- Proof of Execution with privacy protection",
-    "- Automatic model cache cleanup",
-    "- Background daemon mode"
+    "Silicon v1.0.191 - Fix multiprocessing pickle error in workload execution",
+    "Intel v1.0.196 - Fix multiprocessing pickle error in workload execution",
+    "Windows v1.0.43 - Custom workload support"
   ]
 }
