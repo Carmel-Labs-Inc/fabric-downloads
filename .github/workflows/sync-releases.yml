@@ -105,59 +105,63 @@ jobs:
       - name: Update latest.json
         run: |
           VERSION="${{ env.VERSION }}"
-          VERSION_NUM="${VERSION#v}"  # Remove 'v' prefix
+          PLATFORM="${{ env.PLATFORM }}"
           
-          # Get file sizes
-          SILICON_SIZE=$(stat -f%z "macos/silicon/FabricAgent-Silicon-${VERSION}.dmg" 2>/dev/null || echo "0")
-          INTEL_SIZE=$(stat -f%z "macos/intel/FabricAgent-Intel-${VERSION}.dmg" 2>/dev/null || echo "0")
-          WINDOWS_SIZE=$(stat -c%s "windows/FabricAgent-Windows-${VERSION}.zip" 2>/dev/null || stat -f%z "windows/FabricAgent-Windows-${VERSION}.zip" 2>/dev/null || echo "0")
+          # Install jq for JSON manipulation
+          sudo apt-get install -y jq
           
-          # Get SHA256
-          SILICON_SHA=$(cat "macos/silicon/SHA256-Silicon-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
-          INTEL_SHA=$(cat "macos/intel/SHA256-Intel-${VERSION}.txt" | awk '{print $1}' 2>/dev/null || echo "")
-          WINDOWS_SHA=$(cat "windows/SHA256-Windows-${VERSION}.txt" | awk 'NR==2 {print $2}' 2>/dev/null || echo "")
+          # Only update the specific platform that was released
+          if [[ "$PLATFORM" == "silicon-released" || "$PLATFORM" == "silicon" ]]; then
+            SHA=$(cat "macos/silicon/SHA256-Silicon-${VERSION}.txt" 2>/dev/null | awk '{print $1}' || echo "")
+            SIZE=$(stat -c%s "macos/silicon/FabricAgent-Silicon-${VERSION}.dmg" 2>/dev/null || echo "0")
+            
+            jq --arg ver "$VERSION" \
+               --arg url "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.dmg" \
+               --arg sha "$SHA" \
+               --argjson size "$SIZE" \
+               '.platforms.macos_silicon.version = $ver | 
+                .platforms.macos_silicon.download_url = $url | 
+                .platforms.macos_silicon.sha256 = $sha | 
+                .platforms.macos_silicon.size_bytes = $size |
+                .release_date = (now | strftime("%Y-%m-%d"))' latest.json > latest.json.tmp && mv latest.json.tmp latest.json
+                
+          elif [[ "$PLATFORM" == "intel-released" || "$PLATFORM" == "intel" ]]; then
+            SHA=$(cat "macos/intel/SHA256-Intel-${VERSION}.txt" 2>/dev/null | awk '{print $1}' || echo "")
+            SIZE=$(stat -c%s "macos/intel/FabricAgent-Intel-${VERSION}.dmg" 2>/dev/null || echo "0")
+            
+            jq --arg ver "$VERSION" \
+               --arg url "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.dmg" \
+               --arg sha "$SHA" \
+               --argjson size "$SIZE" \
+               '.platforms.macos_intel.version = $ver | 
+                .platforms.macos_intel.download_url = $url | 
+                .platforms.macos_intel.sha256 = $sha | 
+                .platforms.macos_intel.size_bytes = $size |
+                .release_date = (now | strftime("%Y-%m-%d"))' latest.json > latest.json.tmp && mv latest.json.tmp latest.json
+                
+          elif [[ "$PLATFORM" == "windows-released" || "$PLATFORM" == "windows" ]]; then
+            SHA=$(cat "windows/SHA256-Windows-${VERSION}.txt" 2>/dev/null | awk 'NR==2 {print $2}' || echo "")
+            SIZE=$(stat -c%s "windows/FabricAgent-Windows-${VERSION}.zip" 2>/dev/null || echo "0")
+            VERSION_NUM="${VERSION#windows-v}"
+            VERSION_NUM="${VERSION_NUM#v}"
+            
+            jq --arg ver "$VERSION" \
+               --arg url "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe" \
+               --arg installer "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe" \
+               --arg zip "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Windows-${VERSION}.zip" \
+               --arg sha "$SHA" \
+               --argjson size "$SIZE" \
+               '.platforms.windows.version = $ver | 
+                .platforms.windows.download_url = $url | 
+                .platforms.windows.installer_url = $installer |
+                .platforms.windows.zip_url = $zip |
+                .platforms.windows.sha256 = $sha | 
+                .platforms.windows.size_bytes = $size |
+                .release_date = (now | strftime("%Y-%m-%d"))' latest.json > latest.json.tmp && mv latest.json.tmp latest.json
+          fi
           
-          # Update latest.json
-          cat > latest.json << EOF
-          {
-            "version": "${VERSION_NUM}",
-            "release_date": "$(date -u +%Y-%m-%d)",
-            "platforms": {
-              "macos_silicon": {
-                "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Silicon-${VERSION}.dmg",
-                "sha256": "${SILICON_SHA}",
-                "size_bytes": ${SILICON_SIZE},
-                "min_os_version": "12.0"
-              },
-              "macos_intel": {
-                "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Intel-${VERSION}.dmg",
-                "sha256": "${INTEL_SHA}",
-                "size_bytes": ${INTEL_SIZE},
-                "min_os_version": "12.0"
-              },
-              "windows": {
-                "version": "${VERSION_NUM}",
-                "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe",
-                "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgentSetup-${VERSION_NUM}.exe",
-                "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Windows-${VERSION}.zip",
-                "sha256": "${WINDOWS_SHA}",
-                "size_bytes": ${WINDOWS_SIZE},
-                "min_os_version": "10.0"
-              }
-            },
-            "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-silicon/releases/tag/${VERSION}",
-            "changelog": [
-              "${VERSION} - Production release",
-              "- 28 fully implemented workloads (Compute, Data, Media, Inference, Training)",
-              "- WebSocket real-time job notifications",
-              "- Proof of Execution with privacy protection",
-              "- Automatic model cache cleanup",
-              "- Background daemon mode"
-            ]
-          }
-          EOF
+          echo "Updated latest.json for $PLATFORM"
+          cat latest.json
           
       - name: Commit and Push
         run: |
@@ -168,7 +172,8 @@ jobs:
           git commit -m "Update latest.json for ${VERSION}"
           git push
           
-      - name: Create GitHub Release
+      - name: Create GitHub Release (Silicon)
+        if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.VERSION }}
@@ -176,33 +181,44 @@ jobs:
           body: |
             ## Fabric Agent ${{ env.VERSION }}
             
-            Production-ready builds for macOS and Windows
-            
-            ### Downloads
-            - **macOS Silicon (M1/M2/M3/M4)**: FabricAgent-Silicon-${{ env.VERSION }}.dmg
-            - **macOS Intel (x86_64)**: FabricAgent-Intel-${{ env.VERSION }}.dmg
-            - **Windows 10/11 (x86_64)**: FabricAgent-Windows-${{ env.VERSION }}.zip
-            
-            ### Installation
-            
-            **macOS:**
-            1. Download the appropriate DMG for your Mac
-            2. Open the DMG and drag FabricAgent to Applications
-            3. Open and follow enrollment instructions
-            
-            **Windows:**
-            1. Download `FabricAgentSetup-*.exe` (recommended) or ZIP file
-            2. Run the installer and follow setup wizard
-            3. Or extract ZIP and run FabricAgent.exe manually
-            
-            ### Support
-            - Discord: https://discord.gg/fabric
-            - Email: support@fabric.carmel.so
+            macOS Silicon (M1/M2/M3/M4) build
           files: |
             macos/silicon/FabricAgent-Silicon-*.dmg
             macos/silicon/SHA256-Silicon-*.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Create GitHub Release (Intel)
+        if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Fabric Agent ${{ env.VERSION }}
+          body: |
+            ## Fabric Agent ${{ env.VERSION }}
+            
+            macOS Intel (x86_64) build
+          files: |
             macos/intel/FabricAgent-Intel-*.dmg
             macos/intel/SHA256-Intel-*.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Create GitHub Release (Windows)
+        if: env.PLATFORM == 'windows-released' || env.PLATFORM == 'windows'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Fabric Agent ${{ env.VERSION }}
+          body: |
+            ## Fabric Agent ${{ env.VERSION }}
+            
+            Windows 10/11 (x86_64) build
+          files: |
             windows/FabricAgentSetup-*.exe
             windows/FabricAgent-Windows-*.zip
             windows/SHA256-Windows-*.txt
