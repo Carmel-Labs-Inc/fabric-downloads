@@ -190,6 +190,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Notify Silicon Users
+        if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon'
+        run: |
+          VERSION="${{ env.VERSION }}"
+          VERSION_NUM="${VERSION#silicon-v}"
+          VERSION_NUM="${VERSION_NUM#v}"
+          
+          curl -X POST "https://api.fabric.carmel.so/api/admin/notify-agent-update" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -d "{
+              \"platform\": \"silicon\",
+              \"version\": \"${VERSION_NUM}\",
+              \"message\": \"New macOS Silicon agent available\"
+            }" || echo "Notification failed, continuing..."
+          
       - name: Create GitHub Release (Intel)
         if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel'
         uses: softprops/action-gh-release@v1
@@ -207,6 +223,22 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Notify Intel Users
+        if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel'
+        run: |
+          VERSION="${{ env.VERSION }}"
+          VERSION_NUM="${VERSION#intel-v}"
+          VERSION_NUM="${VERSION_NUM#v}"
+          
+          curl -X POST "https://api.fabric.carmel.so/api/admin/notify-agent-update" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -d "{
+              \"platform\": \"intel\",
+              \"version\": \"${VERSION_NUM}\",
+              \"message\": \"New macOS Intel agent available\"
+            }" || echo "Notification failed, continuing..."
           
       - name: Create GitHub Release (Windows)
         if: env.PLATFORM == 'windows-released' || env.PLATFORM == 'windows'
@@ -226,4 +258,20 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Notify Windows Users
+        if: env.PLATFORM == 'windows-released' || env.PLATFORM == 'windows'
+        run: |
+          VERSION="${{ env.VERSION }}"
+          VERSION_NUM="${VERSION#windows-v}"
+          VERSION_NUM="${VERSION_NUM#v}"
+          
+          curl -X POST "https://api.fabric.carmel.so/api/admin/notify-agent-update" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -d "{
+              \"platform\": \"windows\",
+              \"version\": \"${VERSION_NUM}\",
+              \"message\": \"New Windows agent available\"
+            }" || echo "Notification failed, continuing..."
 
