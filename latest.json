@@ -5,8 +5,8 @@
     "macos_silicon": {
       "version": "silicon-v1.0.196",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/silicon-v1.0.196/FabricAgent-Silicon-silicon-v1.0.196.dmg",
-      "sha256": "3565ac9a166ab026dd0df887926e240d2f8f84004e9a42c2dec69b562f72e3b2",
-      "size_bytes": 358859206,
+      "sha256": "6cd2e8be278c439a27ac033ab6bd9aa0a17bdaaf5bf51868586690abed375510",
+      "size_bytes": 325898040,
       "min_os_version": "12.0"
     },
     "macos_intel": {
