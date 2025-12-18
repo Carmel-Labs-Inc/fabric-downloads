@@ -1,6 +1,6 @@
 {
   "version": "2025-12-14",
-  "release_date": "2025-12-16",
+  "release_date": "2025-12-18",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.200",
@@ -10,10 +10,10 @@
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.206",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.206/FabricAgent-Intel-intel-v1.0.206.dmg",
-      "sha256": "0480cf43c44ef98cede7eaffe87ec16b88401bb95a937c62e19254a47994bfd8",
-      "size_bytes": 487299387,
+      "version": "intel-v1.0.210",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.210/FabricAgent-Intel-intel-v1.0.210.dmg",
+      "sha256": "1c2061306b52785462dfe7f7a1f7be82cc607232192964a9d2f9d574a8193785",
+      "size_bytes": 487309904,
       "min_os_version": "12.0"
     },
     "windows": {
