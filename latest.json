@@ -26,9 +26,9 @@
       "min_os_version": "10.0"
     },
     "linux": {
-      "version": "linux-v1.0.1",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.1/FabricAgent-Linux-linux-v1.0.1.AppImage",
-      "sha256": "24bb67942642c143b948e4915ca305ed5051d2e5ccf373a1b9534a7ed8300ec2",
+      "version": "linux-v1.0.2",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.2/FabricAgent-Linux-linux-v1.0.2.AppImage",
+      "sha256": "33871cc0aa8c6792108f430cc79f6f26bfbfbb46ed2e53a949a0f4abb0c98888",
       "size_bytes": 397190336,
       "min_os_version": "Ubuntu 20.04+"
     }
