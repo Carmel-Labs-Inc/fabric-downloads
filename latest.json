@@ -24,6 +24,13 @@
       "sha256": "FabricAgentSetup-1.0.51.exe\r",
       "size_bytes": 429171813,
       "min_os_version": "10.0"
+    },
+    "linux": {
+      "version": "linux-v1.0.1",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.1/FabricAgent-Linux-linux-v1.0.1.AppImage",
+      "sha256": "",
+      "size_bytes": 0,
+      "min_os_version": "Ubuntu 20.04+"
     }
   },
   "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",

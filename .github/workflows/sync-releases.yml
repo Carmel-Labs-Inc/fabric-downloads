@@ -2,7 +2,7 @@ name: Sync Releases to Downloads
 
 on:
   repository_dispatch:
-    types: [silicon-released, intel-released, windows-released]
+    types: [silicon-released, intel-released, windows-released, linux-released]
   workflow_dispatch:
     inputs:
       version:
@@ -101,6 +101,29 @@ jobs:
           
           # List downloaded files
           ls -la windows/
+          
+      - name: Download Linux Build
+        if: env.PLATFORM == 'linux-released' || env.PLATFORM == 'linux' || env.PLATFORM == 'all'
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
+        run: |
+          VERSION="${{ env.VERSION }}"
+          mkdir -p linux
+          
+          # Download AppImage from GitHub release
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-linux \
+            --pattern "FabricAgent-Linux-${VERSION}.AppImage" \
+            --dir linux
+          
+          # Download checksums
+          gh release download ${VERSION} \
+            --repo Carmel-Labs-Inc/fabric-linux \
+            --pattern "SHA256-Linux-${VERSION}.txt" \
+            --dir linux
+          
+          # List downloaded files
+          ls -la linux/
             
       - name: Update latest.json
         run: |
@@ -157,6 +180,20 @@ jobs:
                 .platforms.windows.zip_url = $zip |
                 .platforms.windows.sha256 = $sha | 
                 .platforms.windows.size_bytes = $size |
+                .release_date = (now | strftime("%Y-%m-%d"))' latest.json > latest.json.tmp && mv latest.json.tmp latest.json
+                
+          elif [[ "$PLATFORM" == "linux-released" || "$PLATFORM" == "linux" ]]; then
+            SHA=$(cat "linux/SHA256-Linux-${VERSION}.txt" 2>/dev/null | awk '{print $1}' || echo "")
+            SIZE=$(stat -c%s "linux/FabricAgent-Linux-${VERSION}.AppImage" 2>/dev/null || echo "0")
+            
+            jq --arg ver "$VERSION" \
+               --arg url "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/${VERSION}/FabricAgent-Linux-${VERSION}.AppImage" \
+               --arg sha "$SHA" \
+               --argjson size "$SIZE" \
+               '.platforms.linux.version = $ver | 
+                .platforms.linux.download_url = $url | 
+                .platforms.linux.sha256 = $sha | 
+                .platforms.linux.size_bytes = $size |
                 .release_date = (now | strftime("%Y-%m-%d"))' latest.json > latest.json.tmp && mv latest.json.tmp latest.json
           fi
           
@@ -273,5 +310,39 @@ jobs:
               \"platform\": \"windows\",
               \"version\": \"${VERSION_NUM}\",
               \"message\": \"New Windows agent available\"
+            }" || echo "Notification failed, continuing..."
+          
+      - name: Create GitHub Release (Linux)
+        if: env.PLATFORM == 'linux-released' || env.PLATFORM == 'linux'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Fabric Agent ${{ env.VERSION }}
+          body: |
+            ## Fabric Agent ${{ env.VERSION }}
+            
+            Linux (x86_64) build - AppImage format
+          files: |
+            linux/FabricAgent-Linux-*.AppImage
+            linux/SHA256-Linux-*.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Notify Linux Users
+        if: env.PLATFORM == 'linux-released' || env.PLATFORM == 'linux'
+        run: |
+          VERSION="${{ env.VERSION }}"
+          VERSION_NUM="${VERSION#linux-v}"
+          VERSION_NUM="${VERSION_NUM#v}"
+          
+          curl -X POST "https://api.fabric.carmel.so/api/admin/notify-agent-update" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -d "{
+              \"platform\": \"linux\",
+              \"version\": \"${VERSION_NUM}\",
+              \"message\": \"New Linux agent available\"
             }" || echo "Notification failed, continuing..."
 
