@@ -1,6 +1,6 @@
 {
   "version": "2025-12-14",
-  "release_date": "2025-12-21",
+  "release_date": "2025-12-22",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.200",
@@ -28,8 +28,8 @@
     "linux": {
       "version": "linux-v1.0.1",
       "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.1/FabricAgent-Linux-linux-v1.0.1.AppImage",
-      "sha256": "",
-      "size_bytes": 0,
+      "sha256": "24bb67942642c143b948e4915ca305ed5051d2e5ccf373a1b9534a7ed8300ec2",
+      "size_bytes": 397190336,
       "min_os_version": "Ubuntu 20.04+"
     }
   },
