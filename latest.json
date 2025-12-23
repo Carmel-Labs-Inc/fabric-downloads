@@ -33,16 +33,16 @@
       "min_os_version": "Ubuntu 20.04+"
     },
     "linux_x86_64": {
-      "version": "linux-v1.0.11",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.11/FabricAgent-Linux-x86_64-linux-v1.0.11.AppImage",
-      "sha256": "5d4a10ed2e9e44bab1e241230ec4520f6e8624c759a0f6411f06fb1b3f9a8c57",
-      "size_bytes": 408384704
+      "version": "linux-v1.0.12",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.12/FabricAgent-Linux-x86_64-linux-v1.0.12.AppImage",
+      "sha256": "1f79990c7ca5f428a24a31d75f006dc29a2c65d5013675c72f85a7bb53733061",
+      "size_bytes": 439289024
     },
     "linux_aarch64": {
-      "version": "linux-v1.0.11",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.11/FabricAgent-Linux-aarch64-linux-v1.0.11",
-      "sha256": "dba81399d1a4ec1aa76b2ba5241e7fe06d5a6e4b6b39da75b97d1778aacf1e84",
-      "size_bytes": 271131536
+      "version": "linux-v1.0.12",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.12/FabricAgent-Linux-aarch64-linux-v1.0.12",
+      "sha256": "8804153796b4ab7e623c69873cb33dad2e7c5733938335c21ebff9f26fff2956",
+      "size_bytes": 313678144
     }
   },
   "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",
