@@ -1,6 +1,6 @@
 {
   "version": "2025-12-14",
-  "release_date": "2025-12-22",
+  "release_date": "2025-12-23",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.202",
