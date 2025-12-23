@@ -242,7 +242,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
           
       - name: Notify Silicon Users
         if: env.PLATFORM == 'silicon-released' || env.PLATFORM == 'silicon'
@@ -276,7 +276,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
           
       - name: Notify Intel Users
         if: env.PLATFORM == 'intel-released' || env.PLATFORM == 'intel'
@@ -311,7 +311,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
           
       - name: Notify Windows Users
         if: env.PLATFORM == 'windows-released' || env.PLATFORM == 'windows'
@@ -348,7 +348,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
           
       - name: Notify Linux Users
         if: env.PLATFORM == 'linux-released' || env.PLATFORM == 'linux'
