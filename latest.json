@@ -10,10 +10,10 @@
       "min_os_version": "12.0"
     },
     "macos_intel": {
-      "version": "intel-v1.0.210",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.210/FabricAgent-Intel-intel-v1.0.210.dmg",
-      "sha256": "1c2061306b52785462dfe7f7a1f7be82cc607232192964a9d2f9d574a8193785",
-      "size_bytes": 487309904,
+      "version": "intel-v1.0.213",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/intel-v1.0.213/FabricAgent-Intel-intel-v1.0.213.dmg",
+      "sha256": "39bc0108a62aa4f366720265bb872a0cbb8d68799655621ca3a1f0545c4be5fb",
+      "size_bytes": 487313045,
       "min_os_version": "12.0"
     },
     "windows": {
