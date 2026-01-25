@@ -1,6 +1,6 @@
 {
   "version": "2025-12-14",
-  "release_date": "2025-12-27",
+  "release_date": "2026-01-25",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.214",
@@ -33,16 +33,16 @@
       "min_os_version": "Ubuntu 20.04+"
     },
     "linux_x86_64": {
-      "version": "linux-v1.0.26",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.26/FabricAgent-Linux-x86_64-linux-v1.0.26.AppImage",
-      "sha256": "ed40c618017636f26aed8cb5a4553e4005f8267861be7b87920123158231fba1",
-      "size_bytes": 439305408
+      "version": "linux-v1.0.27",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.27/FabricAgent-Linux-x86_64-linux-v1.0.27.AppImage",
+      "sha256": "f1d3d6545e54be170a3928a840cca6181e710d0a206e3620f18dcf89e7f79a1a",
+      "size_bytes": 447411392
     },
     "linux_aarch64": {
-      "version": "linux-v1.0.26",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.26/FabricAgent-Linux-aarch64-linux-v1.0.26",
-      "sha256": "a66e514104b554d9b1a4c7e21d0ad751df9ae3bbadaff304dbdac241eb0ffb5e",
-      "size_bytes": 332979760
+      "version": "linux-v1.0.27",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/linux-v1.0.27/FabricAgent-Linux-aarch64-linux-v1.0.27",
+      "sha256": "6c3b7580e8a4cf3a500377af08ca4d0cf862e4835a834cd4ad1e44d17a703cf1",
+      "size_bytes": 373119936
     }
   },
   "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",
