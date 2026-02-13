@@ -1,6 +1,6 @@
 {
   "version": "2025-12-14",
-  "release_date": "2026-02-11",
+  "release_date": "2026-02-13",
   "platforms": {
     "macos_silicon": {
       "version": "silicon-v1.0.214",
@@ -17,12 +17,12 @@
       "min_os_version": "12.0"
     },
     "windows": {
-      "version": "windows-v1.0.62",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.62/FabricAgentSetup-1.0.62.exe",
-      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.62/FabricAgentSetup-1.0.62.exe",
-      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.62/FabricAgent-Windows-windows-v1.0.62.zip",
-      "sha256": "FabricAgentSetup-1.0.62.exe\r",
-      "size_bytes": 452925789,
+      "version": "windows-v1.0.65",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.65/FabricAgentSetup-1.0.65.exe",
+      "installer_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.65/FabricAgentSetup-1.0.65.exe",
+      "zip_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/windows-v1.0.65/FabricAgent-Windows-windows-v1.0.65.zip",
+      "sha256": "FabricAgentSetup-1.0.65.exe\r",
+      "size_bytes": 457987491,
       "min_os_version": "10.0"
     },
     "linux": {
