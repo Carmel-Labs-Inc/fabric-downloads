@@ -45,12 +45,12 @@
       "size_bytes": 393768816
     },
     "fabric_live_macos": {
-      "version": "fabric-live-v0.1.0",
-      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/fabric-live-v0.1.0/FabricLive-0.1.0.pkg",
-      "sha256": "0da23242be5821c5940fac7f9893601cba060a190b0cd96db5b5bf04fb51ac8c",
-      "size_bytes": 15298925,
+      "version": "fabric-live-v0.1.1",
+      "download_url": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases/download/fabric-live-v0.1.1/FabricLive-0.1.1.pkg",
+      "sha256": "439dea92177ceaa57161041f6a39f2c93e23d3ec95fd492d6e16ceccba157bd5",
+      "size_bytes": 15309549,
       "min_os_version": "12.0",
-      "notes": "Fabric Live local bridge helper (notarized PKG)"
+      "notes": "Fabric Live local bridge helper (notarized PKG) - Disconnect/Uninstall"
     }
   },
   "release_notes": "https://github.com/Carmel-Labs-Inc/fabric-downloads/releases",
